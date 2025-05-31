@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Acesso Interno – Ginásio Vila Ina</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      font-size: 16px;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #005f73;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    header p {
+      font-size: 1rem;
+      margin-top: 8px;
+      opacity: 0.85;
+    }
+
+    nav {
+      background-color: #0a9396;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 10px 0;
+    }
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+    nav a:hover {
+      background-color: #94d2bd;
+      color: #005f73;
+    }
+    nav a.ativo {
+      background-color: #94d2bd;
+      color: #005f73;
+    }
+
+    main {
+      flex: 1;
+      max-width: 400px;
+      margin: 80px auto;
+      background-color: #fff;
+      padding: 30px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    main h2 {
+      color: #005f73;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+    main p {
+      margin-bottom: 16px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    form button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #005f73;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    form button:hover {
+      background-color: #0a9396;
+    }
+    #erroSenha {
+      margin-top: 12px;
+      color: #d00000;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    footer {
+      background-color: #005f73;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Ginásio Vila Ina</h1>
+    <p>Esporte Para Todos – Futsal Comunitário</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cadastro.html">Cadastrar Atleta</a>
+    <a href="acesso.html" class="ativo">Acesso Interno</a>
+  </nav>
+
+  <main>
+    <h2>Acesso Restrito</h2>
+    <p>Para continuar, digite a senha interna:</p>
+    <form id="formAcesso">
+      <input
+        type="password"
+        id="senhaInput"
+        placeholder="Digite a senha interna"
+        required
+      />
+      <button type="submit">Entrar</button>
+      <div id="erroSenha">Senha incorreta. Tente novamente.</div>
+    </form>
+  </main>
+
+  <footer>
+    © 2025 Ginásio Vila Ina | Esporte Para Todos – Futsal Comunitário | São José dos Pinhais/PR
+  </footer>
+
+  <script>
+    // Defina aqui a senha que deseja usar:
+    const SENHA_CORRETA = "meuacesso123";
+
+    document.getElementById("formAcesso").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const valor = document.getElementById("senhaInput").value.trim();
+
+      if (valor === SENHA_CORRETA) {
+        // Se a senha estiver correta, redireciona para interno.html
+        window.location.href = "interno.html";
+      } else {
+        // Se a senha estiver incorreta, exibe a mensagem
+        document.getElementById("erroSenha").style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
